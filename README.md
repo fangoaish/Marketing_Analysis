@@ -34,7 +34,7 @@ The provided dataset aggregates data from passengers converted through digital m
            - **Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
            - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
 
-```
+```ruby
 SELECT 
     month,
     SUM(CASE WHEN conversion_country = 'UK' THEN conversions ELSE 0 END) AS UK_Conversions,
