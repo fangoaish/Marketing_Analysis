@@ -30,9 +30,9 @@ The provided dataset aggregates data from passengers converted through digital m
       - Understanding the conversion trends over time for UK vs. non-UK markets is crucial because the campaign is specifically geo-targeted to users in the UK. Despite this, a growing number of conversions are occurring in non-UK countries, which may point to issues with the targeting settings, platform behaviors, or other factors like cross-border traffic. By comparing these conversion volumes month-over-month (MoM), I can identify when the shift toward non-UK conversions started and assess the severity of the trend. This will help pinpoint whether this is a recent anomaly or a long-standing issue, allowing for better focus on potential root causes.
    - So what?
       - If non-UK conversions are growing disproportionately, it suggests a failure in geo-targeting, which can have significant implications:
-       - **Budget Inefficiency:** Marketing spend intended for UK users is being wasted on non-UK conversions, reducing overall ROI.
-       - **Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
-       - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
+           - **Budget Inefficiency:** Marketing spend intended for UK users is being wasted on non-UK conversions, reducing overall ROI.
+           - **Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
+           - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
 
        
 
