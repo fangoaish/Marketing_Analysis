@@ -34,9 +34,20 @@ The provided dataset aggregates data from passengers converted through digital m
            - **Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
            - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
 
-       
-
-<img width="524" alt="SQL P1Q1" src="https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/c8329a5b-81a0-44df-a504-35db08064f61">
+```
+SELECT 
+    month,
+    SUM(CASE WHEN conversion_country = 'UK' THEN conversions ELSE 0 END) AS UK_Conversions,
+    SUM(CASE WHEN conversion_country != 'UK' THEN conversions ELSE 0 END) AS Non_UK_Conversions,
+    SUM(CASE WHEN conversion_country != 'UK' THEN conversions ELSE 0 END) /
+                  SUM(conversions) AS Non_UK_Conversion_Share,
+    SUM(CASE WHEN conversion_country = 'UK' THEN conversions ELSE 0 END) /
+                  SUM(conversions) AS UK_Conversion_Share	
+FROM 'campaigns.csv'
+WHERE asset_country = 'UK'
+GROUP BY month
+ORDER BY month;
+```
 
 ![Conversion Rates of Sessions to Orders - Gsearch](https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/db04d55d-6428-45dc-a378-db5751d7aaab)
 
