@@ -27,12 +27,15 @@ The provided dataset aggregates data from passengers converted through digital m
 
 ### _1) Showcase the UK/Non-UK conversion trend from targeted UK campaigns._
    - Why do I want to know?
-      - Understanding the conversion trends over time for UK vs. non-UK markets is crucial because the campaign is specifically geo-targeted to users in the UK. Despite this, a growing number of conversions are occurring in non-UK countries, which may point to issues with the targeting settings, platform behaviors, or other factors like cross-border traffic. By comparing these conversion volumes month-over-month (MoM), I can identify when the shift toward non-UK conversions started and assess the severity of the trend. This will help pinpoint whether this is a recent anomaly or a long-standing issue, allowing for better focus on potential root causes.
+      - Understanding the conversion trends over time for UK vs. non-UK markets is key since the campaign targets only UK users. However, we're seeing a growing number of conversions from non-UK countries, which could indicate potential issues. By comparing conversion trend MoM, I can identify if it's seasonality or a long-standing issue. This will help focus on potential root causes more effectively.
    - So what?
       - If non-UK conversions are growing disproportionately, it suggests a failure in geo-targeting, which can have significant implications:
            - **Budget Inefficiency:** Marketing spend intended for UK users is being wasted on non-UK conversions, reducing overall ROI.
            - **Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
            - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
+       
+In oder to find out the potential factors for non-UK conversion increase, this analysis will dive into **_Targeting Accuracy_** and **_Cross-Border Traffic._**
+
 
 ```ruby
 SELECT 
