@@ -31,85 +31,102 @@ The provided dataset aggregates data from passengers converted through digital m
    - So what?
       - If non-UK conversions are growing disproportionately, it suggests a failure in geo-targeting, which can have significant implications:
            - **Budget Inefficiency:** Marketing spend intended for UK users is being wasted on non-UK conversions, reducing overall ROI.
-           - **Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
+           - **Geo-Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
            - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
        
-In oder to find out the potential factors for non-UK conversion increase, this analysis will dive into **_Targeting Accuracy_** and **_Cross-Border Traffic._**
+In oder to find out the potential factors for non-UK conversion increase, this analysis will dive into **_Geo-Targeting Accuracy_** and **_Cross-Border Traffic._**
 
 
 ```ruby
+-- UK vs. Non-UK conversion Trend Overview
 SELECT 
     month,
     SUM(CASE WHEN conversion_country = 'UK' THEN conversions ELSE 0 END) AS UK_Conversions,
+    SUM(CASE WHEN conversion_country = 'UK' THEN conversions ELSE 0 END) / SUM(conversions) AS UK_Conversion_Share,
     SUM(CASE WHEN conversion_country != 'UK' THEN conversions ELSE 0 END) AS Non_UK_Conversions,
-    SUM(CASE WHEN conversion_country != 'UK' THEN conversions ELSE 0 END) /
-                  SUM(conversions) AS Non_UK_Conversion_Share,
-    SUM(CASE WHEN conversion_country = 'UK' THEN conversions ELSE 0 END) /
-                  SUM(conversions) AS UK_Conversion_Share	
+    SUM(CASE WHEN conversion_country != 'UK' THEN conversions ELSE 0 END) / SUM(conversions) AS Non_UK_Conversion_Share
 FROM 'campaigns.csv'
 WHERE asset_country = 'UK'
 GROUP BY month
-ORDER BY month;
+ORDER BY month ASC;
 ```
 
-![Conversion Rates of Sessions to Orders - Gsearch](https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/db04d55d-6428-45dc-a378-db5751d7aaab)
+### **Findings -  Trend Analysis**
+- **UK conversion decline:** UK conversions dropped from 83.5% in January 2022 to just 28.2% by September 2023, indicating a sharp decline in UK-based conversions over time.
+- **Non-UK conversion growth:** Non-UK conversions increased steadily, growing from 16.5% in January 2022 to 71.8% by September 2023, highlighting a significant shift in audience location.
 
-
-Overall, the data indicates a positive trend of increasing website traffic and orders over time, with a consistent conversion rate, suggesting that the website is effectively converting sessions into orders regardless of fluctuations in traffic volume. 
-
-### _2) Evaluate the performance of nonbrand and brand campaigns separately to determine if brand campaigns are gaining traction._
-
-<img width="797" alt="eCommerce Q2" src="https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/34f65380-0a94-47b2-ad55-df5b8f03f861">
-
-![Conversion Rates Between Brand and Nonbrand Campaigns](https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/5610e6f0-6739-4507-a2bf-73b88ff055f9)
+As non-UK conversions increased, UK conversions decreased in proportion, suggesting potential cannibalization. 
 
 
 
-#### **Brand Campaigns**:
-There has been a noticeable increase in brand sessions and orders over the months, indicating a growing interest in brand-specific marketing efforts.
-The brand campaign conversion rate fluctuates, peaking at 9.23% in April but stabilizing around 4-6% in subsequent months. This suggests that while there may be variations, the overall effectiveness of brand campaigns in converting sessions to orders remains relatively consistent.
+
+### _2)  Evaluate the performance of geo-targeting from the publishers.
+- Why Do I Want to Know?
+    - I want to see if specific publishers are causing conversions outside the target market, which could indicate geo-targeting issues.
+
+- So What?
+    - If certain publishers are off-target, it means wasted ad spend. Identifying them lets us fix the issue or reallocate budget to improve campaign performance.
+
+By comparing the **_country_code_by_phone_** (the user's phone number country) with the **_conversion_country_** (where the conversion occurred) and **_asset_country_** (marketing targeted country - in this case it's uk), It allows you to detect if there is any mismatches between users’ phone numbers and the conversion location, highlighting potential geo-targeting inefficiencies.
+
+```ruby
+-- how mismatches look like from publisher
+SELECT 
+    publisher,
+    
+    -- UK Campaigns
+    SUM(CASE WHEN asset_country = 'UK' AND conversion_country = 'UK' THEN conversions ELSE 0 END) AS UK_Conversions,
+    SUM(CASE WHEN asset_country = 'UK' AND conversion_country != 'UK' THEN conversions ELSE 0 END) AS Non_UK_Conversions,
+    
+    -- Mismatches for UK 
+    SUM(CASE WHEN asset_country = 'UK' AND conversion_country != country_code_by_phone THEN conversions ELSE 0 END) AS UK_Mismatched_Conversions,
+    CONCAT(ROUND(
+        SUM(CASE WHEN asset_country = 'UK' AND conversion_country != country_code_by_phone THEN conversions ELSE 0 END) /
+        SUM(CASE WHEN asset_country = 'UK' THEN conversions ELSE 0 END) * 100, 2), '%') AS UK_Mismatched_Conversion_Rate,
+
+    -- DE Campaigns
+    SUM(CASE WHEN asset_country = 'DE' AND conversion_country = 'DE' THEN conversions ELSE 0 END) AS DE_Conversions,
+    SUM(CASE WHEN asset_country = 'DE' AND conversion_country != 'DE' THEN conversions ELSE 0 END) AS Non_DE_Conversions,
+
+    --Mismatches for DE 
+    SUM(CASE WHEN asset_country = 'DE' AND conversion_country != country_code_by_phone THEN conversions ELSE 0 END) AS DE_Mismatched_Conversions,
+    CONCAT(ROUND(
+        SUM(CASE WHEN asset_country = 'DE' AND conversion_country != country_code_by_phone THEN conversions ELSE 0 END) /
+        SUM(CASE WHEN asset_country = 'DE' THEN conversions ELSE 0 END) * 100, 2), '%') AS DE_Mismatched_Conversion_Rate
+
+FROM 'campaigns.csv'
+GROUP BY 1
+ORDER BY UK_Mismatched_Conversions DESC, DE_Mismatched_Conversions DESC;
+```
+
+### **Findings - Geo-Targeting Accuracy**
+- **Higher UK Mismatches:** UK has consistently higher mismatched conversion rates than DE. For example, PublisherS has a 58.5% UK mismatch vs. 28.4% in DE, and PublisherT shows 59.9% in the UK vs. 43.6% in DE.
+- **DE Performs Better:** DE generally shows lower mismatched rates. PublisherK has 57.5% UK mismatches but only 42.5% in DE
+
+### **Recommendations:**
+- Focus on urgent publishers with the highest mismatch rates to refine targeting strategies.
 
 
-- #### **Nonbrand Campaigns**:
-Nonbrand sessions and orders also show an upward trend over the months, indicating increasing traffic and interest from users who are not specifically searching for the brand.
-The nonbrand campaign conversion rate remains relatively stable around 3-4%, suggesting a consistent level of effectiveness in converting nonbrand sessions into orders.     
+### _3) Evaluate the conversion performance breakdown by the attribution type for UK and DE._
+- Why Do I Want to Know?
+    - I want to see conversion performance in each attribution type, which could indicate geo-targeting issues.
+
+- So What?
+    - If certain attribution_type are off-target, it means wasted ad spend. Identifying them lets us fix the issue or reallocate the budget to improve campaign performance.
+
+### **Findings:**
+- **UK Conversions:**
+    - Install: 51.79% of conversions come from UK users, while 48.21% are non-UK, indicating that we need to require a better review for better geo-targeting.
+    - Retargeting: Strong UK focus with 72.42% of conversions.
+    - Reattribution: 88.40% of UK conversions highlight successful win-back efforts.
 
 
-### _3) Compare monthly trends of Gsearch traffic with other channels to understand their respective impacts on overall traffic._
-   - Why do I want to know?
-      - to bid efficiently and use data to maximize the effectiveness of the marketing budget
-   - So what?
-      - understand which marketing channels are driving the most sessions and orders through the website
-      - understand differences in user characteristics and conversion performance across marketing channels
-      - Optimize bids and allocate marketing spend across a multi-channel portfolio to achieve maximum performance
-   - Measured by?
-      - To identify traffic coming from multiple marketing channels, we will use utm parameters stored in our sessions table
-      - We will LEFT JOIN to our orders table to understand which of the sessions converted to placing an order and generating revenue
 
-First, we'll check the different UTM sources and referrers to identify the incoming traffic.
-
-<img width="339" alt="eCommerce Q4 -1" src="https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/883cc548-6d36-485c-a00a-a0f8964d936d">
+- **DE Conversions:**
+    -  Install: 80.56% of conversions are local, showing highly effective acquisition campaigns.
+    -  Retargeting: 90.54% of conversions come from within Germany, indicating strong re-engagement.
 
 
-we have four channels:
-   1. gsearch
-   2. bsearch
-   3. organic
-   4. direct
-
-
-- If utm_source and utm_campaign IS NULL and http_referer IS NOT NULL -> _organic search_
-- If utm_source and utm_campaign IS NULL and http_referer IS NULL -> _direct_
-
-<img width="1266" alt="eCommerce Q4 -2" src="https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/8967abae-3590-4e50-9092-d20c6af90cf9">
-
-![Average Conversion Rates By Channels](https://github.com/fangoaish/SQL__eCommerce-Analysis-for-Maven-Fuzzy-Factory/assets/51399519/198cd5b7-8143-42c3-b6a1-eb29e7f5deb1)
-
-- **Gsearch Performance**: Gsearch consistently maintains a significant share of overall traffic throughout the months, with steady growth in sessions and orders. The conversion rate for Gsearch remains relatively stable, averaging 3.73%.
-
-- **Other Channels**: While channels like branded search (Bsearch), direct, and organic traffic contribute to overall traffic. Among these, Bsearch stands out with the highest conversion rate at 4.82%, followed by direct at 4.98%, and organic traffic at 4.38%.
-
-- **Conclusion**: Gsearch emerges as a consistent and impactful driver of overall traffic, with a relatively stable conversion rate. However, it's essential to note the varying performance of other channels, particularly Bsearch, which exhibits a higher conversion rate. Understanding these trends allows for strategic decisions in resource allocation and optimization efforts across different channels to maximize overall traffic and conversions.
 
 
 ## Traffic Source Analysis
