@@ -19,7 +19,33 @@ The provided dataset aggregates data from passengers converted through digital m
 - Conversions: The number of conversions.
 - Month: Time period of the campaign.
 
+
+## Analysis framework
+In order to find out the potential factors for non-UK conversion increase, this analysis will continue to dive into **_Geo-Targeting Accuracy_** from the publisher perspective and **_Cross-Border Traffic_** from user behavior perspective.
+
+How to define Geo-Targetng / Cross-Border Traffic?
+- **conversion country vs. asset country mismatch:** Cross-border traffic occurs when the conversion_country (where the conversion happens) is different from the asset_country (where the campaign is targeted).
+- **country code by phone mismatch:** A strong indicator of cross-border traffic is when the **_country_code_by_phone (user’s phone number)_** differs from the **_conversion_country_**. This implies that a user from another country completed a conversion in a different country.
+
+
+Therefore, in this case, there could be 2 conditions:
+
+1. _**Condition 1:**_ UK living people convert outside UK
+     - accesst_country = UK
+     - country_code_by_phone = UK
+     - conversion_country != UK
  
+ 
+2. _**Condition 2:**_ Non-UK living people convert inside UK
+     - accesst_country = UK
+     - country_code_by_phone != UK
+     - conversion_country = UK
+
+
+- Condition 1 > Geo-targeting
+- Condition 1 & 2 > Cross-Border Traffic
+
+  
 
 ## Exploratory Data Analysis
 
