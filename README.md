@@ -34,7 +34,7 @@ The provided dataset aggregates data from passengers converted through digital m
            - **Geo-Targeting Accuracy:** If geo-targeting is malfunctioning or misconfigured, it affects the campaign's ability to reach its intended audience. This could lead to lower conversions from UK-based users.
            - **Cross-Border Opportunities:** If the non-UK conversions reflect actual user interest, this could present an opportunity to expand campaigns beyond the UK, potentially opening new markets. However, it would require deliberate strategy adjustments rather than unintended spillover.
        
-In oder to find out the potential factors for non-UK conversion increase, this analysis will dive into **_Geo-Targeting Accuracy_** and **_Cross-Border Traffic._**
+In oder to find out the potential factors for non-UK conversion increase, this analysis will continue dive into **_Geo-Targeting Accuracy_** for the publish perspective and **_Cross-Border Traffic_** for user behavior perspecitve
 
 
 ```ruby
