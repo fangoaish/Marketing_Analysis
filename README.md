@@ -294,3 +294,60 @@ LEFT JOIN non_de_conversion_users
 ON non_uk_conversion_users.publisher = non_de_conversion_users.publisher
 ORDER BY non_uk_conversion_users.publisher;
 ```
+
+## Data Analysis: UK conversion behavioral insights
+
+### **5.  Evaluate mobility type and activation time to identify key drivers for potential UK conversion growth.**
+- Why Do I Want to Know?
+    - It helps optimize strategies for increasing UK conversions and improving campaign effectiveness.
+ 
+### **Findings**
+- **TAXI (<2h activation)** is the top driver for UK conversions, while **Private Hire** sees stronger for Non-UK and DE/Non-DE conversions.
+
+```ruby
+SELECT 
+    mobility_type,
+    duration_install_to_activation,
+
+    -- UK Conversions (campaign targeted at UK, conversion in UK)
+    SUM(CASE WHEN asset_country = 'UK' AND conversion_country = 'UK' THEN conversions ELSE 0 END) AS UK_Conversions,
+
+    -- Non-UK Conversions (campaign targeted at UK, conversion outside UK)
+    SUM(CASE WHEN asset_country = 'UK' AND conversion_country != 'UK' THEN conversions ELSE 0 END) AS Non_UK_Conversions,
+
+    -- Germany Conversions (campaign targeted at Germany, conversion in Germany)
+    SUM(CASE WHEN asset_country = 'DE' AND conversion_country = 'DE' THEN conversions ELSE 0 END) AS DE_Conversions,
+
+    -- Non-Germany Conversions (campaign targeted at Germany, conversion outside Germany)
+    SUM(CASE WHEN asset_country = 'DE' AND conversion_country != 'DE' THEN conversions ELSE 0 END) AS Non_DE_Conversions
+
+FROM 'campaigns.csv'
+GROUP BY 1,2
+ORDER BY UK_Conversions DESC;
+```
+
+## **Overall Conclusions**
+- UK & Non-UK MoM Conversion Performances: 
+    - UK conversions dropped from 83.5% to 28.2%, while non-UK conversions surged to 71.8%, indicating geo-targeting issues and cross-border traffic.
+
+- Publisher Geo-Targeting Issues: 
+    - Publishers like PublisherS (54%) and PublisherT (52%) show more geo-targeting mismatches in UK campaigns, while DE campaigns have fewer issues.
+
+- Attribution Type Performance: 
+    - The Install type is split nearly 50-50 between UK and non-UK conversions, signaling a need for better geo-targeting, while Retargeting and Reattribution perform better in the UK.
+
+- Target Audience from Cross-Border: 
+    - High cross-border conversions from key publishers - PublisherB (44.1%), PublisherS (44.6%), and PublisherG (48.9%) suggest audience targeting needs a review in both UK and DE markets.
+
+- Mobility Type: 
+    - TAXI with <2h activation boosts UK conversions, while Private Hire drives non-UK and DE conversions.
+
+
+
+## **Limitations**
+- Missing Data on Phone Country Codes: 
+    - Some users don’t have phone country code data, which makes it harder to accurately analyze cross-border traffic and target audience behavior.
+
+
+- Limited Data Granularity:
+    - The dataset gives a good overview at the publisher and mobility type level, but we’re missing deeper details, like user demographics and campaign specifics, which would help pinpoint why certain campaigns are underperforming.
