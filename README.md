@@ -60,7 +60,7 @@ As non-UK conversions increased, UK conversions decreased in proportion, suggest
 
 
 
-### _2)  Evaluate the performance of geo-targeting from the publishers.
+### _2)  Evaluate the performance of geo-targeting from the publishers._
 - Why Do I Want to Know?
     - I want to see if specific publishers are causing conversions outside the target market, which could indicate geo-targeting issues.
 
@@ -70,7 +70,7 @@ As non-UK conversions increased, UK conversions decreased in proportion, suggest
 By comparing the **_country_code_by_phone_** (the user's phone number country) with the **_conversion_country_** (where the conversion occurred) and **_asset_country_** (marketing targeted country - in this case it's uk), It allows you to detect if there is any mismatches between users’ phone numbers and the conversion location, highlighting potential geo-targeting inefficiencies.
 
 ```ruby
--- how mismatches look like from publisher
+-- how mismatches look like from the publisher
 SELECT 
     publisher,
     
@@ -105,6 +105,8 @@ ORDER BY UK_Mismatched_Conversions DESC, DE_Mismatched_Conversions DESC;
 
 ### **Recommendations:**
 - Focus on urgent publishers with the highest mismatch rates to refine targeting strategies.
+
+
 
 
 ### _3) Evaluate the conversion performance breakdown by the attribution type for UK and DE._
