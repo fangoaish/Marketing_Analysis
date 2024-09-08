@@ -30,20 +30,18 @@ How to define Geo-Targetng / Cross-Border Traffic?
 
 Therefore, in this case, there could be 2 conditions:
 
-1. _**Condition 1:**_ UK living people convert outside UK
+1. Condition 1: **_accesst_country != conversion_coutry_** > Geo-targeting issue > publisher
+     - accesst_country = UK
+     - conversion_country != UK
+
+2. Condition 2: **_country_code_by_phone != conversion_coutry_** > cross-border traffic > target audience (user behavior) 
      - accesst_country = UK
      - country_code_by_phone = UK
      - conversion_country != UK
- 
- 
-2. _**Condition 2:**_ Non-UK living people convert inside UK
+AND  
      - accesst_country = UK
-     - country_code_by_phone != UK
-     - conversion_country = UK
-
-
-- Condition 1 > Geo-targeting
-- Condition 1 & 2 > Cross-Border Traffic
+     - country_code_by_phone = !UK
+     - conversion_country != UK
 
   
 
