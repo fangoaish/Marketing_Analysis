@@ -112,6 +112,7 @@ SELECT
 FROM campaign_data
 ORDER BY 1;
 ```
+![截圖 2024-09-09 14 52 08](https://github.com/user-attachments/assets/1d9ef714-e943-4092-ae29-a308dc1fb7ac)
 
 ## Data Analysis: Geo-targeting accuracy
 By comparing the publishers vs. with the **_conversion_country_** (where the conversion occurred) and **_asset_country_** (marketing targeted country - in this case it's uk), It allows us to detect if there is any potential geo-targeting inefficiencies.
