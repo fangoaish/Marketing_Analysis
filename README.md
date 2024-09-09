@@ -215,10 +215,10 @@ Therefore, in this case, we'll look int 2nd conditions:
         - country_code_by_phone = !UK
         - conversion_country != UK
 
-Since we want to find out why Non-UK conversions increased even though the geo targeting is set up in UK, we can check from the publisher with 1. UK users converting outside the UK & 2. checks for non-UK users converting outside the UK, even though the campaign is targeted at the UK to double check if the publishers focus on the right target audience.
+Since we want to find out why Non-UK conversions increased even though the geo targeting is set up in UK, we can check how the publisher focus on the target audience with 1. UK users converting outside the UK & 2. checks for non-UK users converting outside the UK, even though the campaign is targeted at the UK to double check if the publishers focus on the right target audience.
 
 
-### **4.  Publisher Analysis of Cross-Border Traffic and Target Audience in Non-UK Conversions for UK Geo-Targeted Campaigns (DE market as comparsion)**
+### **4. Publisher and Cross-Border Traffic Analysis for Non-UK Conversions in UK-Targeted Campaigns (same analysis for DE) **
 - Why Do I Want to Know?
     - Understanding target audience misalignment in UK and DE markets helps optimize campaign performance by focusing on the right users, and improving ROI.
  
