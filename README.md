@@ -1,4 +1,4 @@
-# Uncovering Unexpected Conversions: Geo-Targeting Anomalies
+# Analysis of Non-UK Conversions in UK-Targeted Campaigns: Insights for Geo-Targeting Optimization
 
 ## Project Overview
 The primary objective of this project is to analyze the dataset and determine the factors contributing to the increasing share of non-UK conversions in UK-targeted campaigns. This will involve comparing the performance of UK and non-UK conversions. The insights gained will help inform whether adjustments are needed in the geo-targeting setup or other aspects of the campaign strategy.
