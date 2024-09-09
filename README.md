@@ -161,6 +161,7 @@ ORDER BY UK_Conversions DESC;
 
 ### **Recommendations:**
 - Focus on urgent publishers with the highest mismatch rates to refine targeting strategies.
+![截圖 2024-09-09 15 08 05](https://github.com/user-attachments/assets/5ba848db-1206-49ca-9f2c-1b26a8724cfd)
 
 
 
