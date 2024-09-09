@@ -75,6 +75,9 @@ WHERE asset_country = 'UK'
 GROUP BY month
 ORDER BY month ASC;
 ```
+![截圖 2024-09-09 14 42 03](https://github.com/user-attachments/assets/dd6d6136-38b3-438c-ba17-16b67103686e)
+![截圖 2024-09-09 14 41 56](https://github.com/user-attachments/assets/ca207ee8-f8ef-45c4-a131-c4d643a97ab5)
+
 
 ```ruby
 -- explore the data in the MoM table
