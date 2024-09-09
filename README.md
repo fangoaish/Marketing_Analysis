@@ -112,7 +112,8 @@ SELECT
 FROM campaign_data
 ORDER BY 1;
 ```
-![截圖 2024-09-09 14 52 08](https://github.com/user-attachments/assets/1d9ef714-e943-4092-ae29-a308dc1fb7ac)
+
+![截圖 2024-09-09 18 17 42](https://github.com/user-attachments/assets/181fc125-be62-4167-a79d-567e5dac547e)
 
 ## Data Analysis: Geo-targeting accuracy
 By comparing the publishers vs. with the **_conversion_country_** (where the conversion occurred) and **_asset_country_** (marketing targeted country - in this case it's uk), It allows us to detect if there is any potential geo-targeting inefficiencies.
@@ -155,13 +156,8 @@ GROUP BY publisher
 ORDER BY UK_Conversions DESC;
 ```
 
-### **Findings - Geo-Targeting Accuracy**
-- **Higher UK Mismatches:** UK has consistently higher mismatched conversion rates than DE. For example, PublisherS has a 58.5% UK mismatch vs. 28.4% in DE, and PublisherT shows 59.9% in the UK vs. 43.6% in DE.
-- **DE Performs Better:** DE generally shows lower mismatched rates. PublisherK has 57.5% UK mismatches but only 42.5% in DE
+![截圖 2024-09-09 18 18 17](https://github.com/user-attachments/assets/24e4e0a5-ad76-4737-b059-8e82a9f43529)
 
-### **Recommendations:**
-- Focus on urgent publishers with the highest mismatch rates to refine targeting strategies.
-![截圖 2024-09-09 15 08 05](https://github.com/user-attachments/assets/5ba848db-1206-49ca-9f2c-1b26a8724cfd)
 
 
 
@@ -199,6 +195,10 @@ FROM 'campaigns.csv'
 GROUP BY attribution_type
 ORDER BY UK_Conversions DESC;
 ```
+
+![截圖 2024-09-09 18 18 35](https://github.com/user-attachments/assets/9fd1e1cd-5c75-4234-a6c2-7eba304f64fe)
+
+![截圖 2024-09-09 18 18 40](https://github.com/user-attachments/assets/42f387be-584e-479c-a3e1-853a5cb57ad2)
 
 
 ## Data Analysis: Cross-border traffic for target audience insights
@@ -299,9 +299,14 @@ ON non_uk_conversion_users.publisher = non_de_conversion_users.publisher
 ORDER BY non_uk_conversion_users.publisher;
 ```
 
+![截圖 2024-09-09 18 19 15](https://github.com/user-attachments/assets/0a4a32e1-8310-43d1-addb-7e162081e0fa)
+
+
+
+
 ## Data Analysis: UK conversion behavioral insights
 
-### **5.  Evaluate mobility type and activation time to identify key drivers for potential UK conversion growth.**
+### **5.  Evaluate mobility type and activation time to identify key drivers for potential UK/DE conversion growth.**
 - Why Do I Want to Know?
     - It helps optimize strategies for increasing UK conversions and improving campaign effectiveness.
  
@@ -329,6 +334,10 @@ FROM 'campaigns.csv'
 GROUP BY 1,2
 ORDER BY UK_Conversions DESC;
 ```
+
+![截圖 2024-09-09 18 19 25](https://github.com/user-attachments/assets/25e7cd50-423a-4d55-9517-7c59d3de8332)
+
+
 
 ## **Overall Conclusions**
 - UK & Non-UK MoM Conversion Performances: 
