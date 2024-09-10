@@ -17,6 +17,30 @@ The provided dataset aggregates data from passengers converted through digital m
 - Conversions: The number of conversions.
 - Month: Time period of the campaign.
 
+## **Key Insights:**
+- UK vs. Non-UK Conversion Trends:
+    - UK conversions dropped from 83.5% to 28.2% (Jan 2022 to Sep 2023), while non-UK conversions grew from 16.5% to 71.8%, signaling geo-targeting issues and cross-border traffic.
+    - Non-UK conversions may be displacing UK conversions, indicating potential audience cannibalization.
+
+- Geo-Targeting Accuracy:
+    - UK campaigns show higher mismatch rates, with publishers like PublisherS causing up to 54.6% non-UK conversions.
+    - DE campaigns perform better with fewer geo-targeting issues.
+
+- Cross-Border Traffic:
+    - UK campaigns face high cross-border conversions from key publishers, with nearly 50% of conversions coming from non-UK users.
+
+- Attribution Type Performance:
+    - UK install conversions are evenly split between UK and non-UK users, while DE campaigns show stronger local conversion rates (80.56%).
+
+- Mobility Type and Activation:
+    - TAXI (<2h activation) drives UK conversions, while Private Hire performs better in non-UK and DE markets.
+
+
+## **Takeaways:**
+- Geo-Targeting Needs Refinement: UK campaigns are experiencing geo-targeting issues, leading to wasted ad spend on non-UK conversions. Immediate action is required to review publishers' geo targeting and keyword settings.
+- Cross-Border Traffic Monitoring: Both UK and DE campaigns show notable cross-border conversion rates, particularly for specific publishers. Regular monitoring and adjustments to target audience settings are essential.
+- Mobility Type-Specific Messaging: Campaigns should emphasize TAXI services in the UK and Private Hire in non-UK/DE markets to align with regional preferences and drive conversion growth.
+
 
 ## Analysis framework
 In order to find out the potential factors for non-UK conversion increase, this analysis will dive into **_Geo-Targeting Accuracy_** from the location targeting perspective and **_Cross-Border Traffic_** from target audience perspective.
