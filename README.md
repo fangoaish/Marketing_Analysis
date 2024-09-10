@@ -65,8 +65,10 @@ The inverse relationship between UK and non-UK conversions suggests potential ca
 
 
 ### **Next Steps:**
-**- Review Geo-Targeting Setup:** Conduct a thorough review of geo-targeting settings across all publishers to ensure ads are focused on the UK markett, and review keyword targeting to exclude irrelevant keywords by adding them as negatives.
-**- Analyze Non-UK Conversion Audience:** Examine which publishers are driving the most non-UK users, as this could indicate an unintended and unsophisticated targeting audience that doesn’t align with the campaign’s objectives.
+
+- **Review Geo-Targeting Setup:** Conduct a thorough review of geo-targeting settings across all publishers to ensure ads are focused on the UK markett, and review keyword targeting to exclude irrelevant keywords by adding them as negatives.
+
+- **Analyze Non-UK Conversion Audience:** Examine which publishers are driving the most non-UK users, as this could indicate an unintended and unsophisticated targeting audience that doesn’t align with the campaign’s objectives.
 
 
 ```ruby
