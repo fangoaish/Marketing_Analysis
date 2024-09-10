@@ -32,7 +32,7 @@ Therefore, in this case, there could be 2 conditions:
      - accesst_country = UK
      - conversion_country != UK
 
-2. Condition 2 - target audience : **_country_code_by_phone != conversion_coutry_** > cross-border traffic
+2. Condition 2 - Cross-border traffic : **_country_code_by_phone != conversion_coutry_** > publisher > target audience
 - Scenario 1: checks for UK users converting outside the UK
     - accesst_country = UK
     - country_code_by_phone = UK
@@ -46,20 +46,27 @@ Therefore, in this case, there could be 2 conditions:
 ## Exploratory Data Analysis
 
 ## Data Analysis - Trend Analysis
-### **1. Showcase the UK/Non-UK conversion trend from targeted UK campaigns.**
+### **1. Showcase the UK/Non-UK conversion trend from UK targeted campaigns.**
    - Why do I want to know?
       - The campaign targets UK users, but increasing non-UK conversions could signal geo-targeting issues, platform behavior anomalies, or cross-border traffic. Month-over-month (MoM) analysis helps identify when this trend began and its severity, revealing if it's an anomaly or long-standing issue.
    - So what?
         - **Budget Inefficiency:** Marketing spend intended for UK users is being wasted on non-UK conversions, reducing overall ROI.
         - **Geo-Targeting Accuracy:** Misconfigured geo-targeting impacts UK user reach and conversions
-        - **Cross-Border Traffic:** If non-UK conversions are genuine interest, it may suggest potential for expansion, but requires strategic adjustments
+        - **Cross-Border Traffic:** If non-UK conversions consistently exceed UK conversions, it's worth re-evaluating the campaign’s target audience and how geo-targeting is functioning.
 
           
 ### **Findings**
 - **UK conversion decline:** UK conversions dropped from 83.5% in January 2022 to just 28.2% by September 2023, indicating a sharp decline in UK-based conversions over time.
 - **Non-UK conversion growth:** Non-UK conversions increased steadily, growing from 16.5% in January 2022 to 71.8% by September 2023, highlighting a significant shift in audience location.
-
+  
 As non-UK conversions increased, UK conversions decreased in proportion, suggesting potential cannibalization. 
+- **Cannibalization Effect:**
+The inverse relationship between UK and non-UK conversions suggests potential cannibalization, where non-UK traffic is displacing UK conversions. As non-UK conversions rise, UK conversions fall, which indicates that geo-targeting or target audience may be influencing this pattern.
+
+
+### **Next Steps:**
+**- Review Geo-Targeting Setup:** Conduct a thorough review of geo-targeting settings across all publishers to ensure ads are focused on the UK markett, and review keyword targeting to exclude irrelevant keywords by adding them as negatives.
+**- Analyze Non-UK Conversion Audience:** Examine which publishers are driving the most non-UK users, as this could indicate an unintended and unsophisticated targeting audience that doesn’t align with the campaign’s objectives.
 
 
 ```ruby
