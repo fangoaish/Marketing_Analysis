@@ -322,6 +322,9 @@ ORDER BY non_uk_conversion_users.publisher;
 ### **Findings**
 - **TAXI (<2h activation)** is the top driver for UK conversions, while **Private Hire** sees stronger for Non-UK and DE/Non-DE conversions.
 
+### **Recommendations**
+- **Adjust Geo-Targeted messaging**: Tailor messaging to emphasize the mobility types that perform best in each region. For UK campaigns, highlight the immediate availability of taxis, while for DE/Non-DE campaigns, focus on promoting private hire services to align with user preferences.
+
 ```ruby
 SELECT 
     mobility_type,
