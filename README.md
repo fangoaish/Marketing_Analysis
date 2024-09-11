@@ -30,7 +30,7 @@ The provided dataset aggregates data from passengers converted through digital m
     - UK campaigns face high cross-border conversions from key publishers, with nearly 50% of conversions coming from non-UK users.
 
 - Attribution Type Performance:
-    - UK install conversions are evenly split between UK and non-UK users, while DE campaigns show stronger local conversion rates (80.56%).
+    - UK install conversions are evenly split between UK and non-UK conversions, while DE campaigns show stronger local conversion rates (80.56%).
 
 - Mobility Type and Activation:
     - TAXI (<2h activation) drives UK conversions, while Private Hire performs better in non-UK and DE markets.
@@ -45,16 +45,22 @@ The provided dataset aggregates data from passengers converted through digital m
 ## Analysis framework
 In order to find out the potential factors for non-UK conversion increase, this analysis will dive into **_Geo-Targeting Accuracy_** from the location targeting perspective and **_Cross-Border Traffic_** from target audience perspective.
 
-How to define Geo-Targetng / Cross-Border Traffic?
+How to define Geo-Targeting / Cross-Border Traffic?
 - **conversion country vs. asset country mismatch:** Geo-targeting issues arise when the **_conversion_country (where the conversion happens)_** is different from the **_asset_country (where the campaign is targeted)_**.
+    - Scenario 1: Although geo-targeting is set to the UK, it's possible that some conversions are coming from outside the UK.  
 - **country code by phone mismatch:** A strong indicator of cross-border traffic is when the **_country_code_by_phone (user’s phone number)_** differs from the **_conversion_country_**. This implies that a user from another country completed a conversion in a different country.
+    - Scenario 1: check for UK users converting outside the UK
+    - Scenario 2: check for non-UK users converting outside the UK, even though the campaign is targeted at the UK
+
 
 
 Therefore, in this case, there could be 2 conditions:
 
 1. Condition 1 - Geo-targeting issue: **_accesst_country != conversion_coutry_** > publisher
+    - Scenario 1: Although geo-targeting is set to the UK, it's possible that some conversions are coming from outside the UK. 
      - accesst_country = UK
      - conversion_country != UK
+
 
 2. Condition 2 - Cross-border traffic : **_country_code_by_phone != conversion_coutry_** > publisher > target audience
 - Scenario 1: checks for UK users converting outside the UK
@@ -65,6 +71,8 @@ Therefore, in this case, there could be 2 conditions:
     - accesst_country = UK
     - country_code_by_phone = !UK
     - conversion_country != UK
+ 
+  
 
 
 ## Exploratory Data Analysis
