@@ -38,7 +38,7 @@ The provided dataset aggregates data from passengers converted through digital m
 
 ## **Takeaways:**
 - Geo-Targeting Needs Refinement:
-	- UK campaigns are experiencing geo-targeting issues, leading to wasted ad spend on non-UK conversions. Immediate action is required to review publishers' geo targeting and keyword settings.
+	- UK campaigns are experiencing geo-targeting issues, leading to wasted ad spend on non-UK conversions. Immediate action is required to _**review publishers' geo targeting**_, _**install attribution type**_,  **_negative keyword settings_** and Google’s Keyword Planner of the **_current trend of geo-targeted keywords_** for optimization.
 - Cross-Border Traffic Monitoring:
 	- Both UK and DE campaigns show notable cross-border conversion rates, particularly for specific publishers. Regular monitoring and adjustments to target audience settings are essential.
 - Mobility Type-Specific Messaging:
