@@ -37,9 +37,12 @@ The provided dataset aggregates data from passengers converted through digital m
 
 
 ## **Takeaways:**
-- Geo-Targeting Needs Refinement: UK campaigns are experiencing geo-targeting issues, leading to wasted ad spend on non-UK conversions. Immediate action is required to review publishers' geo targeting and keyword settings.
-- Cross-Border Traffic Monitoring: Both UK and DE campaigns show notable cross-border conversion rates, particularly for specific publishers. Regular monitoring and adjustments to target audience settings are essential.
-- Mobility Type-Specific Messaging: Campaigns should emphasize TAXI services in the UK and Private Hire in non-UK/DE markets to align with regional preferences and drive conversion growth.
+- Geo-Targeting Needs Refinement:
+	- UK campaigns are experiencing geo-targeting issues, leading to wasted ad spend on non-UK conversions. Immediate action is required to review publishers' geo targeting and keyword settings.
+- Cross-Border Traffic Monitoring:
+	- Both UK and DE campaigns show notable cross-border conversion rates, particularly for specific publishers. Regular monitoring and adjustments to target audience settings are essential.
+- Mobility Type-Specific Messaging:
+	- Campaigns should emphasize TAXI services in the UK and Private Hire in non-UK/DE markets to align with regional preferences and drive conversion growth.
 
 
 ## Analysis framework
@@ -388,11 +391,15 @@ ORDER BY UK_Conversions DESC;
 
 
 ## **Conclusion:**
-- Geo-Targeting and Audience Targeting Challenges: The data indicates a significant drop in UK conversions, while non-UK conversions have sharply increased. This shift could be linked to geo-targeting issues, particularly with publishers like PublisherS and PublisherT, where a high percentage of conversions are happening outside the UK. Adjusting geo-targeting settings and reassessing audience segmentation might help reduce cross-border traffic and refocus the campaigns on the intended UK audience.
+- Geo-Targeting and Audience Targeting Challenges:
+	- The data indicates a significant drop in UK conversions, while non-UK conversions have sharply increased. This shift could be linked to geo-targeting issues, particularly with publishers like PublisherS and PublisherT, where a high percentage of conversions are happening outside the UK. Adjusting geo-targeting settings and reassessing audience segmentation might help reduce cross-border traffic and refocus the campaigns on the intended UK audience.
 
-- Mobility Type and Attribution Findings: TAXI services with fast activation times appear to be driving most UK conversions, while Private Hire correlates more with non-UK and DE conversions. The imbalance in install campaign performance could indicate a need for better geo-targeting, while retargeting and reattribution efforts seem effective in the UK. Tailoring messages based on mobility type and monitoring cross-border traffic more closely could improve campaign performance and ROI.
+- Mobility Type and Attribution Findings:
+	- TAXI services with fast activation times appear to be driving most UK conversions, while Private Hire correlates more with non-UK and DE conversions. The imbalance in install campaign performance could indicate a need for better geo-targeting, while retargeting and reattribution efforts seem effective in the UK. Tailoring messages based on mobility type and monitoring cross-border traffic more closely could improve campaign performance and ROI.
 
 ## **Limitations:**
-- Lack of Phone Country Code Data: Around 20% of users lack phone country code information, which might limit our ability to accurately track cross-border traffic. If this data were available, it could help clarify whether the conversion discrepancies are due to geo-targeting issues or user behavior patterns.
+- Lack of Phone Country Code Data:
+	- Around 20% of users lack phone country code information, which might limit our ability to accurately track cross-border traffic. If this data were available, it could help clarify whether the conversion discrepancies are due to geo-targeting issues or user behavior patterns.
 
-- Need for More Detailed Campaign and User Data: Having more granular data on user demographics, campaign performance (e.g., which ads and placements are most effective), and behavioral insights (e.g., time and location of conversions) could provide deeper insights. This additional data might help explain underperforming campaigns and lead to more targeted engagement strategies.
+- Need for More Detailed Campaign and User Data:
+	- Having more granular data on user demographics, campaign performance (e.g., which ads and placements are most effective), and behavioral insights (e.g., time and location of conversions) could provide deeper insights. This additional data might help explain underperforming campaigns and lead to more targeted engagement strategies.
