@@ -257,13 +257,17 @@ To understand the increase in Non-UK conversions despite geo-targeting being set
 ### **Findings:**
 - UK Market:
     - Many publishers show high UK cross-border conversions, especially PublisherB (44.1%), PublisherS (44.6%), and PublisherG (48.9%), indicating significant misalignment in target audience settings.
+    - Cross-Border Traffic: The high percentage of non-UK conversions with UK phone numbers (e.g., PublisherB, PublisherS, and PublisherG) suggests that the campaigns may not be accurately targeting the intended UK audience, leading to conversions from users outside the target region. This misalignment could be due to incorrect audience definitions or broader targeting parameters.
 
 - DE Market:
     - PublisherB (20.6%) and PublisherG (20.8%) exhibit notable cross-border conversions, suggesting similar challenges with DE audience targeting.
+    - Misaligned Audience Segmentation: The similar trend in non-DE conversions with DE phone numbers indicates that audience segmentation might not be specific enough, causing ads to reach users outside the desired regions.
 
 ### **Recommendations:**
-- Target Audience Review Needed: Both UK and DE markets face cross-border conversion issues, particularly with key publishers, requiring a thorough review of target audience settings.
+- Refine Audience Segmentation: Ensure the target audience criteria are specific and aligned with the campaign goals for both UK and DE markets.
+- Evaluate Broader Targeting Settings: Investigate if the targeting parameters are too broad, leading to irrelevant cross-border traffic.
 
+  
 ```ruby
 -- look into user insights from non-uk conversions with geo-tarketing in UK
 WITH non_uk_conversion_users AS (
